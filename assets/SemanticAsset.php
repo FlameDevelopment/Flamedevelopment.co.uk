@@ -13,18 +13,17 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class AppAsset extends AssetBundle
+class SemanticAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $sourcePath = '@app/semantic/dist/';
     public $css = [
-        'css/site.css',
+    		'semantic.min.css',
     ];
     public $js = [
+    		'semantic.min.js'
     ];
     public $depends = [
         //'yii\web\YiiAsset',
         //'yii\bootstrap\BootstrapAsset',
-        'yii\web\JqueryAsset',
     ];
 }

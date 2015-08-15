@@ -1,5 +1,13 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
+	'site'	=>	[
+    'name'	=>	'FlameDevelopment',
+    'owner'	=>	'Martin Brooksbank',
+  ],
+  'email'	=>	[
+  	'contact'	=>	'martin@flamedevelopment.co.uk',
+    'admin' => 'martin@flamedevelopment.co.uk',
+  
+  ]
 ];

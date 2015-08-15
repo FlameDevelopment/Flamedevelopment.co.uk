@@ -1,9 +1,10 @@
 <?php
-
+require(__DIR__ . '/../config/aliases.php');
+require(__DIR__ . '/../config/container.php');
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'id' => 'basic',
+    'id' => 'FlameDevelopment',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
@@ -38,6 +39,10 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+				'assetManager' => [
+				    'class' => 'yii\web\AssetManager',
+				    'forceCopy' => YII_DEBUG,          
+				],
     ],
     'params' => $params,
 ];

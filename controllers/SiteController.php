@@ -4,12 +4,13 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
+//use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\controllers\BaseController;
 
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     public function behaviors()
     {
@@ -49,7 +50,25 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+    	$items = [
+    		[
+    			'url'=>'/',
+    			'label'=>'Home',
+    			'icon'=>'home'
+    		],
+    		[
+    			'url'=>'/portfolio',
+    			'label'=>'Portfolio',
+    			'icon'=>'paint brush'
+    		],
+    		[
+    			'url'=>'/contact',
+    			'label'=>'Contact',
+    			'icon'=>'comment'
+    		]
+    	];
+    	$this->view->params['menu'] = \FlameDevelopment\Menu\MenuService::getMenu($items);
+      return $this->render('index');
     }
 
     public function actionLogin()
