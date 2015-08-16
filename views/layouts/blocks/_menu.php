@@ -5,7 +5,7 @@
       &nbsp;
       <?= Yii::$app->params['site']['name'] ?>
     </div>
-    <?php foreach($this->params['menu']['items'] as $item):?>
+    <?php foreach($this->params['menu']->items as $item):?>
 	    <a class="item" href="<?= $item->url?>">
 	    	<?php if(isset($item->icon) && $item->icon>""):?>
 	    		<i class="large <?=$item->icon?> icon"></i>

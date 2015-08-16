@@ -67,6 +67,7 @@ class SiteController extends BaseController
     			'icon'=>'comment'
     		]
     	];
+    	$this->view->title = Yii::$app->name;
     	$this->view->params['menu'] = \FlameDevelopment\Menu\MenuService::getMenu($items);
       return $this->render('index');
     }

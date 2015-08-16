@@ -4,7 +4,6 @@ namespace FlameDevelopment\Menu;
 
 class MenuFactory
 {	
-	public $menu;
 	public function make(array $items)
 	{
 		$menuItems = [];
@@ -16,11 +15,7 @@ class MenuFactory
 			}
 			$menuItems[] = $item;
 		}
-		
-		$this->menu = [
-			'items'	=>	$menuItems
-		];
-		return $this->menu;
+		return new \FlameDevelopment\Menu($menuItems);
 	}
 	
 	

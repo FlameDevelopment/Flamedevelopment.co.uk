@@ -1,10 +1,14 @@
 <?php
+require(__DIR__ . '/../config/customAutoloader.php');
 require(__DIR__ . '/../config/aliases.php');
-require(__DIR__ . '/../config/container.php');
+
+//require(__DIR__ . '/../config/container.php');
+
 $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'FlameDevelopment',
+    'name'	=> 'FlameDevelopment - Fiery Web Application Development',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
