@@ -2,6 +2,9 @@
 
 namespace FlameDevelopment\Menu;
 
+use \FlameDevelopment\Menu;
+use \FlameDevelopment\Menu\MenuItem;
+
 class MenuFactory
 {	
 	public function make(array $items)
@@ -9,13 +12,9 @@ class MenuFactory
 		$menuItems = [];
 		foreach($items as $item)
 		{
-			if(!$item instanceof MenuItem)
-			{
-				throw new \Exception ('Menu item must be instance of MenuItem class');
-			}
 			$menuItems[] = $item;
 		}
-		return new \FlameDevelopment\Menu($menuItems);
+		return new Menu($menuItems);
 	}
 	
 	

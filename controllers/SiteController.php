@@ -50,25 +50,7 @@ class SiteController extends BaseController
 
     public function actionIndex()
     {
-    	$items = [
-    		[
-    			'url'=>'/',
-    			'label'=>'Home',
-    			'icon'=>'home'
-    		],
-    		[
-    			'url'=>'/portfolio',
-    			'label'=>'Portfolio',
-    			'icon'=>'paint brush'
-    		],
-    		[
-    			'url'=>'/contact',
-    			'label'=>'Contact',
-    			'icon'=>'comment'
-    		]
-    	];
     	$this->view->title = Yii::$app->name;
-    	$this->view->params['menu'] = \FlameDevelopment\Menu\MenuService::getMenu($items);
       return $this->render('index');
     }
 

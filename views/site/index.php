@@ -1,52 +1,50 @@
-<?php
-
-/* @var $this yii\web\View */
-//$this->title = 'My Yii Application';
-?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+<div class="ui grid">
+    <div class="row">
+        <div class="column">
+            <div class="ui huge message page grid center aligned">
+                <h2 class="ui huge header">Set the cloud on fire..</h2>
+                <p>Some stuff here about what we do and how long we've been doing it for, throw in a nice cheesy line if any are available.</p>
+                <a class="ui orange button">Sign up today</a>
             </div>
         </div>
-
     </div>
 </div>
+
+<div class="ui grid">
+            <div class="two column row">
+                <div class="column">
+                    <h2 class="ui medium header">Subheading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+                </div>
+                <div class="column">
+                    <h2 class="ui medium header">Subheading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+                </div>
+            </div>
+            <div class="two column row">
+                <div class="column">
+                    <h2 class="ui medium header">Subheading</h2>
+                    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+                </div>
+                <div class="column">
+                    <h2 class="ui medium header">Subheading</h2>
+                    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+                </div>
+            </div>
+            <div class="two column row">
+                <div class="column">
+                    <h2 class="ui medium header">Subheading</h2>
+                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                </div>
+                <div class="column">
+                    <h2 class="ui medium header">Subheading</h2>
+                    <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="ui divider"></div>  
+                    <span>&copy; Company 2014</span>
+                </div>
+            </div>
+        </div>

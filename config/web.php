@@ -47,6 +47,17 @@ $config = [
 				    'class' => 'yii\web\AssetManager',
 				    'forceCopy' => YII_DEBUG,          
 				],
+				'urlManager' => [
+            'showScriptName' => false,
+						'enablePrettyUrl' => true,
+						'rules' => [
+								'<action:contact|login|logout>' => 'site/<action>',
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+						],
+						// ...
+				]
     ],
     'params' => $params,
 ];

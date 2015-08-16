@@ -5,15 +5,9 @@ namespace FlameDevelopment\Menu;
 use \FlameDevelopment\Menu\MenuItem;
 
 class MenuItemFactory
-{
-	public $url;
-	
-	public $label;
-	
-	public $icon;
-	
-	public function make($url = null, $label = null, $icon = null)
+{	
+	public function make($url = null, $label = null, $icon = null, $active = false, $items = false)
 	{
-		return new MenuItem($url, $label, $icon);
+		return new MenuItem($url, $label, $icon, $active, $items);
 	}
 }
