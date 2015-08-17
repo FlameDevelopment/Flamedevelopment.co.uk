@@ -11,6 +11,6 @@ Technologies used:
 * Semantic-UI (http://semantic-ui.com/)
 * Bootstrap (http://getbootstrap.com/)
 
-**Disclaimer: All code is work-in-progress, please automatically assumed I've apologised if any of it offends you.**
+**Disclaimer: All code is work-in-progress, please automatically assume I've apologised if any of it offends you.**
 
 
