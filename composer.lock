@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "479407875c975e7dbee0aefcb85e62d5",
+    "hash": "db92607ea5b1d252e70638909c02f012",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -315,6 +315,35 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
+        },
+        {
+            "name": "soerenkroell/composer-slick",
+            "version": "1.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kroell/composer-slick.git",
+                "reference": "d66587b85aff3d004ca5caf7ce7d605f72f2ae39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kroell/composer-slick/zipball/d66587b85aff3d004ca5caf7ce7d605f72f2ae39",
+                "reference": "d66587b85aff3d004ca5caf7ce7d605f72f2ae39",
+                "shasum": ""
+            },
+            "type": "component",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ken Wheeler",
+                    "email": "ken_wheeler@me.com"
+                }
+            ],
+            "description": "A composer package for the last carousel you'll ever need",
+            "homepage": "https://github.com/kenwheeler/slick",
+            "time": "2015-07-03 17:24:43"
         },
         {
             "name": "swiftmailer/swiftmailer",

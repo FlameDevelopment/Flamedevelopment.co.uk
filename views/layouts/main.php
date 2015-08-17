@@ -8,10 +8,14 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\assets\SlickAsset;
 use app\assets\SemanticAsset;
+use app\assets\CustomAsset;
 
 AppAsset::register($this);
+SlickAsset::register($this);
 SemanticAsset::register($this);
+CustomAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -28,10 +32,10 @@ SemanticAsset::register($this);
 
 <?= $this->render('/layouts/blocks/_menu', array()) ?>
 
-<div class="ui container">
     <?= Breadcrumbs::widget([
         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
     ]) ?>
+<div class="ui container main-content">
     <?= $content ?>
 </div>
 

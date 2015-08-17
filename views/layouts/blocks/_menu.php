@@ -1,9 +1,9 @@
 <nav class="ui inverted stackable menu">
   <div class="ui container">
     <div class="header item">
-      <img src="/images/logo-ico.png" class="logo">
+      <img src="/images/logo-ico.png" class="logo" />
       &nbsp;
-      <?= Yii::$app->params['site']['name'] ?>
+      <?= Yii::$app->params['profile']['brand'] ?>
     </div>
     <?php foreach($this->params['menu']->items as $item):?>
     	<?php if($item->items):?>
@@ -15,7 +15,7 @@
 			  	<i class="dropdown icon"></i>
 		  		<div class="menu ui transition hidden">
 		  			<?php foreach($item->items as $subItem):?>
-		  				<a class="item<?=(($subItem->active)?' active':'')?>" href="<?= Yii::$app->urlManager->createUrl($subItem->url)?>">
+		  				<a class="item<?=(($subItem->active)?' active':'')?>" href="<?= Yii::$app->urlManager->createUrl($subItem->url)?>" title="<?= $subItem->label?>">
 								<?php if(isset($subItem->icon) && $subItem->icon>""):?>
 									<i class="large <?=$subItem->icon?> icon"></i>
 								<?php endif;?>
@@ -25,7 +25,7 @@
 		  		</div>
 			  </div>
     	<?php else:?>
-			  <a class="item<?=(($item->active)?' active':'')?>" href="<?= Yii::$app->urlManager->createUrl($item->url)?>">
+			  <a class="item<?=(($item->active)?' active':'')?>" href="<?= Yii::$app->urlManager->createUrl($item->url)?>" title="<?= $item->label ?>">
 			  	<?php if(isset($item->icon) && $item->icon>""):?>
 			  		<i class="large <?=$item->icon?> icon"></i>
 			  	<?php endif;?>
@@ -39,7 +39,7 @@
 		    <div class="ui action left icon input">
 		      <i class="search icon"></i>
 		      <input type="text" placeholder="Search">
-		      <button class="ui button">Submit</button>
+		      <button class="ui red button">Submit</button>
 		    </div>
 		  </div>
 		  
@@ -47,10 +47,10 @@
 		  	<div class="ui grid">
 		  		<div class="row">
 						<i class="phone icon"></i>
-						+447501868868
+						<?= Yii::$app->params['contact']['telephone']['general'] ?>
 						<div class="row">
 							<i class="envelope icon"></i>
-							martin@flamedevelopment.co.uk
+						<?= Yii::$app->params['contact']['email']['general'] ?>
 						</div>
 					</div>
 				</div>

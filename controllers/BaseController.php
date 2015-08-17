@@ -16,6 +16,12 @@ class BaseController extends Controller
     parent::init();
   }
   
+  public function render($view, $params = [], $context = null)
+  {
+  	$view = Yii::$app->params['theme']['viewDirectory'].$view;
+  	return parent::render($view, $params, $context);
+  }
+  
   public function getMenu()
   {
   	$items = [
@@ -33,10 +39,28 @@ class BaseController extends Controller
   			'active'=>((strpos(Yii::$app->request->url, '/services')!==false)?true:false),
   			'items'=>[
 						[
-							'url'=>'/portfolio',
-							'label'=>'Portfolio',
+							'url'=>'/services/website-development',
+							'label'=>'Website Development',
+							'icon'=>'globe',
+							'active'=>((strpos(Yii::$app->request->url, '/website-development')!==false)?true:false)
+						],
+						[
+							'url'=>'/services/mobile-applications',
+							'label'=>'Mobile Applications',
+							'icon'=>'tablet',
+							'active'=>((strpos(Yii::$app->request->url, '/mobile-applications')!==false)?true:false)
+						],
+						[
+							'url'=>'/services/hosting',
+							'label'=>'Hosting',
+							'icon'=>'server',
+							'active'=>((strpos(Yii::$app->request->url, '/hosting')!==false)?true:false)
+						],
+						[
+							'url'=>'/services/design',
+							'label'=>'Design',
 							'icon'=>'paint brush',
-							'active'=>((strpos(Yii::$app->request->url, '/portfolio')!==false)?true:false)
+							'active'=>((strpos(Yii::$app->request->url, '/design')!==false)?true:false)
 						],
   			
   			]

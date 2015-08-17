@@ -51,7 +51,7 @@ class SiteController extends BaseController
     public function actionIndex()
     {
     	$this->view->title = Yii::$app->name;
-      return $this->render('index');
+      return $this->render('/site/index');
     }
 
     public function actionLogin()
