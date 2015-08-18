@@ -3,7 +3,6 @@
 namespace FlameDevelopment\Menu;
 
 use \FlameDevelopment\Menu;
-use \FlameDevelopment\Menu\MenuItem;
 
 class MenuFactory
 {	

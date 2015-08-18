@@ -10,6 +10,8 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\controllers\BaseController;
 
+use FlameDevelopment\Html\Snippets\SnippetService as Snippet;
+
 class SiteController extends BaseController
 {
     public function behaviors()
@@ -51,7 +53,85 @@ class SiteController extends BaseController
     public function actionIndex()
     {
     	$this->view->title = Yii::$app->name;
-      return $this->render('/site/index');
+    	
+    	$snippetBuilds = [
+    		[
+					'element'=>'div',
+    			'attributes'=> [
+    				'class'=>'ui grid'
+    			],
+    			'children'=>	[
+    				
+							[
+								'element'=>'div',
+								'attributes'=> [
+									'class'=>'two column row'
+								],
+								'children'=>	[
+    				
+										[
+											'element'=>'div',
+											'attributes'=> [
+												'class'=>'column'
+											],
+											'children'=>	[
+    				
+													[
+														'element'=>'h2',
+														'attributes'=> [
+															'class'=>'ui medium header'
+														],
+														'children'=>	[],
+														'content'=>	'Subheading'
+													],
+    				
+													[
+														'element'=>'p',
+														'attributes'=> [],
+														'children'=>	[],
+														'content'=>	'Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.'
+													]
+								
+											]
+										],
+    				
+										[
+											'element'=>'div',
+											'attributes'=> [
+												'class'=>'column'
+											],
+											'children'=>	[
+    				
+													[
+														'element'=>'h2',
+														'attributes'=> [
+															'class'=>'ui medium header'
+														],
+														'children'=>	[],
+														'content'=>	'Subheading'
+													],
+    				
+													[
+														'element'=>'p',
+														'attributes'=> [],
+														'children'=>	[],
+														'content'=>	'Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.'
+													]
+								
+											]
+										],
+								]
+							]
+							
+    			]
+    		]
+    	];
+    	
+    	foreach($snippetBuilds as $params)
+    	{
+    		$snippets[] = Snippet::getSnippet($params['element'], $params['attributes'], $params['children'], $params['content']);
+    	}
+      return $this->render('/site/index', array('snippets'=>$snippets));
     }
 
     public function actionLogin()
