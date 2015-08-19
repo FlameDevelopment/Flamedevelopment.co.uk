@@ -3,7 +3,7 @@
 namespace FlameDevelopment\Menu;
 
 class MenuService
-{	
+{
         /**
          * Builds the menu object
          * @param array $items

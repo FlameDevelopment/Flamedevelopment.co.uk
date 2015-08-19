@@ -5,7 +5,7 @@ namespace FlameDevelopment\Html\Snippets;
 use \FlameDevelopment\Html\Snippets\SnippetAttribute;
 
 class SnippetAttributeFactory
-{	
+{
         /**
          * Gets the snippet attribute object
          * @param string $name

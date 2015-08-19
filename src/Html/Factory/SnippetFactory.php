@@ -6,7 +6,7 @@ use \FlameDevelopment\Html\Snippets\Snippet;
 use \FlameDevelopment\Html\Snippets\SnippetAttributeFactory;
 
 class SnippetFactory
-{	
+{
         /**
          * Gets the Snippet object
          * @param string $element

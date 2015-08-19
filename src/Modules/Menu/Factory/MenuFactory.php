@@ -5,7 +5,7 @@ namespace FlameDevelopment\Menu;
 use \FlameDevelopment\Menu;
 
 class MenuFactory
-{	
+{
         /**
          * Gets the menu object
          * @param array $items
