@@ -15,7 +15,7 @@ class MenuItemFactory
          * @param array $items
          * @return MenuItem
          */
-	public function make($url = null, $label = null, $icon = null, $active = false, $items = null)
+	public function make($url = null, $label = null, $icon = null, $active = false, $items = array())
 	{
 		return new MenuItem($url, $label, $icon, $active, $items);
 	}
