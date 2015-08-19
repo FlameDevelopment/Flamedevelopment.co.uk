@@ -14,6 +14,14 @@ class MenuItem
 	
 	public $items;
 	
+        /**
+         * Menut item object
+         * @param string $url
+         * @param string $label
+         * @param string $icon
+         * @param boolean $active
+         * @param array $items
+         */
 	public function __construct($url, $label, $icon, $active, $items)
 	{
 		$this->url = $url;

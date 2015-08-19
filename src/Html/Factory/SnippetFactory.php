@@ -7,6 +7,15 @@ use \FlameDevelopment\Html\Snippets\SnippetAttributeFactory;
 
 class SnippetFactory
 {	
+        /**
+         * Gets the Snippet object
+         * @param string $element
+         * @param array $attributes
+         * @param array $children
+         * @param string $content
+         * @return Snippet
+         * @throws \Exception
+         */
 	public function make($element, $attributes = array(), $children = array(), $content = null)
 	{
 		$childObjects = array();

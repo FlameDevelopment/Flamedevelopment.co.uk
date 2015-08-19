@@ -8,6 +8,11 @@ class Menu
 {
 	public $items;
 	
+        /**
+         * Menu Object
+         * @param array $items
+         * @throws \Exception
+         */
 	public function __construct($items)
 	{
 		foreach($items as $item)

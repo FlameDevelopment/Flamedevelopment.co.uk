@@ -6,6 +6,11 @@ use \FlameDevelopment\Menu;
 
 class MenuFactory
 {	
+        /**
+         * Gets the menu object
+         * @param array $items
+         * @return Menu
+         */
 	public function make(array $items)
 	{
 		$menuItems = [];
