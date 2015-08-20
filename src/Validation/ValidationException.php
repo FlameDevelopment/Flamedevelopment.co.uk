@@ -1,10 +1,10 @@
 <?php
 namespace FlameDevelopment\Validation;
-use \FlameDevelopment\Errors\GeneralException;
+use \FlameDevelopment\Errors\InvalidArgumentException;
 /* 
  * Validation Exception class
  */
-class ValidationException extends GeneralException
+class ValidationException extends InvalidArgumentException
 {
     
 }

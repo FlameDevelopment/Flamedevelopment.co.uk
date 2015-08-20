@@ -2,6 +2,8 @@
 
 namespace FlameDevelopment\Validation;
 
+use \FlameDevelopment\Validation\ValidationException;
+
 class EmailAddress
 {
     protected $emailAddress;
@@ -12,7 +14,12 @@ class EmailAddress
      */
     public function __construct($emailAddress)
     {
-        $this->emailAddress = $emailAddress;
+        $filteredValue = filter_var($emailAddress, FILTER_VALIDATE_EMAIL);
+        if($filteredValue === false)
+        {
+            throw new ValidationException($emailAddress, array('string (valid email address)'));
+        }
+        $this->emailAddress = $filteredValue;
     }
 }
 
