@@ -82,7 +82,7 @@ class SiteController extends BaseController
 															'class'=>'ui medium header'
 														],
 														'children'=>	[],
-														'content'=>	'Subheading'
+														'content'=>	'Subheading1'
 													],
     				
 													[
@@ -108,7 +108,7 @@ class SiteController extends BaseController
 															'class'=>'ui medium header'
 														],
 														'children'=>	[],
-														'content'=>	'Subheading'
+														'content'=>	'Subheading2'
 													],
     				
 													[

@@ -4,11 +4,11 @@ namespace FlameDevelopment\Menu;
 
 class MenuService
 {
-        /**
-         * Builds the menu object
-         * @param array $items
-         * @return Menu
-         */
+    /**
+     * Builds the menu object
+     * @param array $items
+     * @return Menu
+     */
 	public function getMenu(array $items)
 	{
 		$menuItems = [];
@@ -43,12 +43,12 @@ class MenuService
 		return MenuFactory::make($menuItems);
 	}
 	
-        /**
-         * Validates a menu item is sufficient
-         * @param array $item
-         * @return array
-         * @throws \Exception
-         */
+    /**
+     * Validates a menu item is sufficient
+     * @param array $item
+     * @return array
+     * @throws \Exception
+     */
 	private function validateItem($item)
 	{
 		if(!isset($item['url']) && !isset($item['label']) && !isset($item['icon']))

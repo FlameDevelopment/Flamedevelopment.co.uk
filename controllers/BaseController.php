@@ -18,7 +18,7 @@ class BaseController extends Controller
   
   public function render($view, $params = [], $context = null)
   {
-  	$view = Yii::$app->params['theme']['viewDirectory'].$view;
+  	$view = Yii::$app->params['theme']['viewDirectory'].'/'.$view;
   	return parent::render($view, $params, $context);
   }
   

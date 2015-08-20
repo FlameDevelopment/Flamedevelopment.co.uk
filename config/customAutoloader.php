@@ -10,5 +10,18 @@ function rglob($pattern, $flags = 0) {
 
 foreach(rglob(dirname(__DIR__).'/src/*.php') as $file)
 {
-	require_once($file);
+  if(stripos($file, 'interface')!==false)
+  {
+    $interfaces[] = $file;
+  }
+  else
+  {
+    $classes[] = $file;
+  }
 }
+$fileList = array_merge($interfaces, $classes);
+foreach ($fileList as $file)
+{
+    require_once($file);
+}
+
