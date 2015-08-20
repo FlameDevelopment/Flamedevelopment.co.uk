@@ -2,6 +2,8 @@
 namespace FlameDevelopment\Modules\User;
 
 use \FlameDevelopment\Modules\User\UserProfile;
+use \FlameDevelopment\Validation\EmailAddress;
+use \FlameDevelopment\Validation\Username;
 
 class UserProfileFactory
 {
@@ -11,7 +13,7 @@ class UserProfileFactory
      * @param string $emailAddress
      * @return UserProfile
      */
-    public function make($username, $emailAddress)
+    public function make(Username $username, EmailAddress $emailAddress)
     {
         return new UserProfile($username, $emailAddress);
     }
