@@ -11,6 +11,7 @@ $config = [
     'name'	=> 'FlameDevelopment - Fiery Web Application Development',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language'  =>  'gb',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -21,7 +22,7 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -58,7 +59,19 @@ $config = [
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
 						],
 						// ...
-				]
+				],
+        'i18n'=>array(
+              'translations' => array(
+                  '*'=>array(
+                      'class' => 'yii\i18n\PhpMessageSource',
+                      'basePath' => "@app/messages",
+                      'sourceLanguage' => 'en_GB',
+                      'fileMap' => array(
+                          'app'=>'app.php'
+                      )
+                  )
+              )
+          ),
     ],
     'params' => $params,
 ];
@@ -73,6 +86,7 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
+        'allowedIPs' => ['127.0.0.1', '::1', '192.168.7.*'] // adjust this to your needs
     ];
 }
 
