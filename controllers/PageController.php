@@ -9,6 +9,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\controllers\BaseController;
 
+use FlameDevelopment\Theme\ThemeService;
+
 /**
  * PageController implements the CRUD actions for Page model.
  */
@@ -83,6 +85,16 @@ class PageController extends BaseController
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $theme = new ThemeService('SemanticUI');
+            echo '<pre>';
+            print_r($theme);
+            echo '</pre>';
+            die();
+            $availableSnippets = $theme->getValidChildren();
+            echo '<pre>';
+            print_r($availableSnippets);
+            echo '</pre>';
+            die();
             return $this->render('page/update', [
                 'model' => $model,
             ]);

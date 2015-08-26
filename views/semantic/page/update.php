@@ -19,5 +19,25 @@ $this->params['breadcrumbs'][] = Yii::t('page', 'Update');
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
+    
+    <?php
+        $content = $this->render(
+         Yii::$app->params['theme']['viewDirectory'].
+         Yii::$app->params['theme']['snippetDirectory'].
+         '/_column', [
+            'model' => $model,
+            'columnSize'=>'sixteen',
+            'content'=>'test1'
+        ]);
+    ?>
+    
+     <?= $this->render(
+         Yii::$app->params['theme']['viewDirectory'].
+         Yii::$app->params['theme']['snippetDirectory'].
+         '/_column', [
+            'model' => $model,
+            'columnSize'=>'sixteen',
+            'content'=>$content
+         ]) ?>
 
 </div>
