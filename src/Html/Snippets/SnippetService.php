@@ -14,8 +14,15 @@ class SnippetService
      * @param string $content
      * @return object Snippet
      */
-	public function getSnippet($element, $attributes = array(), $children = array(), $content = null)
+	public function getSnippet($element, $attributes = array(), $children = array(), $content = null, $fromArray = true)
 	{
-		return SnippetFactory::make($element, $attributes, $children, $content);
+    if($fromArray)
+    {
+        return SnippetFactory::make($element, $attributes, $children, $content);
+    }
+    else
+    {
+        return SnippetFactory::makeFromObject($element, $attributes, $children, $content);        
+    }
 	}
 }

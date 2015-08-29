@@ -2,18 +2,24 @@
 
 namespace FlameDevelopment\Theme\SemanticUI;
 
-use \FlameDevelopment\Theme\SemanticUI\Elements\Grid;
-use \FlameDevelopment\Theme\SemanticUI\Elements\Row;
+use \FlameDevelopment\Errors\ThemeException;
+use \FlameDevelopment\Html\Snippets\SnippetService as Snippet;
 
 class SemanticUIService
 {
     protected $topLevelElements;
+    protected $availableElements;
     
     public function __construct()
     {
         $this->topLevelElements = [
-          new Grid,
-          new Row(),
+          'Grid',
+          'Row'
+        ];
+        $this->availableElements = [
+          'Grid',
+          'Row',
+          'Column'
         ];
     }
     
@@ -22,9 +28,14 @@ class SemanticUIService
         $elements = [];
         foreach($this->topLevelElements as $element)
         {
-            $elements[] = $element->__toString();
+            $elements[$element] = $element;
         }
         
         return $elements;   
+    }
+    
+    public function buildElement($element)
+    {
+        return ElementFactory::make($element);
     }
 }

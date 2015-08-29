@@ -16,6 +16,8 @@ use FlameDevelopment\Theme\ThemeService;
  */
 class PageController extends BaseController
 {
+    private $themeService;
+    
     public function behaviors()
     {
         return [
@@ -85,18 +87,19 @@ class PageController extends BaseController
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            $theme = new ThemeService('SemanticUI');
-            echo '<pre>';
-            print_r($theme);
-            echo '</pre>';
-            die();
-            $availableSnippets = $theme->getValidChildren();
-            echo '<pre>';
-            print_r($availableSnippets);
-            echo '</pre>';
-            die();
+            $this->themeService = new ThemeService('SemanticUI');
+            $availableElements = $this->themeService->getAvailableElements();
+            $existingElements = $this->getExistingElements();
+            $currentContent = "";
+            foreach($existingElements as $existingElement)
+            {
+                $currentContent.= $this->buildSnippet($existingElement);
+            }
             return $this->render('page/update', [
                 'model' => $model,
+                'availableElements' => $availableElements,
+                'existingElements'  => $existingElements,
+                'currentContent'    => $currentContent
             ]);
         }
     }
@@ -128,5 +131,79 @@ class PageController extends BaseController
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    
+    private function getExistingElements()
+    {
+        $elements = [
+          [
+            'element'=>'Grid',
+            'attributes'=>  [
+              'id'=>'grid-element-1',
+              'class'=>[
+                'ui',
+                'grid',
+                'derp'
+              ],
+            ],
+            'content'=>null,
+            'children'=>[
+              
+                [
+                  'element'=>'Row',
+                  'attributes'=>  [
+                    'id'=>'row-element-1'
+                  ],
+                  'content'=>null,
+                  'children'=>[
+                        
+                      [
+                        'element'=>'Column',
+                        'attributes'=>  [
+                          'id'=>'column-element-1',
+                          'size'=>4,
+                        ],
+                        'content'=>'<p>1</p>',
+                        'children'=>[]
+                      ],
+                      [
+                        'element'=>'Column',
+                        'attributes'=>  [
+                          'id'=>'column-element-2',
+                          'size'=>4,
+                        ],
+                        'content'=>'<p>2</p>',
+                        'children'=>[]
+                      ],
+                      [
+                        'element'=>'Column',
+                        'attributes'=>  [
+                          'id'=>'column-element-3',
+                          'size'=>4,
+                        ],
+                        'content'=>'<p>3</p>',
+                        'children'=>[]
+                      ],
+                      [
+                        'element'=>'Column',
+                        'attributes'=>  [
+                          'id'=>'column-element-4',
+                          'size'=>4,
+                        ],
+                        'content'=>'<p>4</p>',
+                        'children'=>[]
+                      ]
+                  ]
+                ]
+            ]
+          ]
+        ];
+        
+        foreach($elements as $element)
+        {
+            $elementObjects[] = $this->themeService->buildElement($element['element'], $element);
+        }
+        
+        return $elementObjects;
     }
 }

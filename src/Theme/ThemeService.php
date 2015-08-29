@@ -2,6 +2,8 @@
 
 namespace FlameDevelopment\Theme;
 
+use \FlameDevelopment\Errors\ThemeException;
+
 class ThemeService
 {
     protected $themeEngine;
@@ -29,6 +31,20 @@ class ThemeService
         {
             return $this->availableElements;
         }
+    }
+    
+    public function buildElement($elementName, $elementAttributes)
+    {
+      if(in_array($elementName, $this->availableElements))
+      {
+          $themeElement = $this->themeEngine->buildElement($elementAttributes);
+      }
+      else
+      {
+          throw new ThemeException("Element: \"".$elementName."\" is not currently available at this level");
+      }
+      
+      return $themeElement;
     }
 }
 

@@ -3,32 +3,35 @@
 namespace FlameDevelopment\Theme\SemanticUI\Elements;
 
 use \FlameDevelopment\Errors\ThemeException;
+use \FlameDevelopment\Validation\Number;
 
-class Row
+class Column
 {
     protected $attributes = [];
     protected $children = [];
     protected $content = null;
     
-    protected $classShortName = "Row";
+    protected $classShortName = "Column";
     
     protected $elementName = "div";
     
     protected $validChildren = [
-      'Row',
-      'Column'
+      'Grid',
+      'Row'
     ];
     
     protected $validAttributes = [
       'id',
-      'class'
+      'class',
+      'size'
     ];
     
     protected $defaultAttributes = [
-      'class'=> 'row'
+      'class'=> [
+            'wide',
+            'column'
+        ]
     ];
-    
-    protected $maxChildrenCount = 16;
     
     public function __construct($attributes = [], $children = [], $content = null)
     {
@@ -40,6 +43,13 @@ class Row
     private function buildAttributes($attributes)
     {
         $this->attributes = $this->defaultAttributes;
+        if(isset($attributes['size']))
+        {
+            $size = new Number($attributes['size']);
+            array_unshift($this->attributes['class'], $size->toWord());
+            unset($attributes['size']);
+        }
+        
         foreach($attributes as $key=>$value)
         {
             if($this->checkValidAttribute($key))

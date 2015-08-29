@@ -2,8 +2,18 @@
 
 namespace FlameDevelopment\Theme\SemanticUI\Elements;
 
+use \FlameDevelopment\Errors\ThemeException;
+
 class Grid
 {
+    protected $attributes = [];
+    protected $children = [];
+    protected $content = null;
+    
+    protected $classShortName = "Grid";
+    
+    protected $elementName = "div";
+    
     protected $validChildren = [
       'Row',
       'Column'
@@ -13,6 +23,65 @@ class Grid
       'id',
       'class'
     ];
+    
+    protected $defaultAttributes = [
+      'class'=> [
+        'ui',
+        'grid'
+      ]
+    ];
+    
+    protected $maxChildrenCount = 16;
+    
+    public function __construct($attributes = [], $children = [], $content = null)
+    {
+        $this->buildAttributes($attributes);
+        $this->buildChildren($children);
+        $this->buildContent($content);
+    }
+    
+    private function buildAttributes($attributes)
+    {
+        $this->attributes = $this->defaultAttributes;
+        foreach($attributes as $key=>$value)
+        {
+            if($this->checkValidAttribute($key))
+            {
+                $value = $this->checkAttributeValue($value);
+                $this->attributes[$key] = $value;
+            }
+        }
+    }
+    
+    private function checkAttributeValue($value)
+    {
+        if(is_array($value))
+        {
+            if(isset($this->defaultAttributes[$key]) && is_array($this->defaultAttributes[$key]))
+            {
+                $value = array_unique(array_merge($this->defaultAttributes[$key], $value));
+            }
+            $value = implode(' ', $value);
+        }
+        
+        return $value;
+    }
+    
+    private function buildChildren($children)
+    {
+        foreach($children as $child)
+        {
+            if($this->checkValidChild($child))
+            {
+                $this->children[] = $child;
+            }
+        }
+    }
+    
+    private function buildContent($content)
+    {
+        $this->content = $content;
+    }
     
     public function getValidChildren()
     {
@@ -26,30 +95,50 @@ class Grid
     
     public function checkValidChild($child)
     {
-        if(in_array($this->validChildren, $child))
+        if(in_array($child, $this->validChildren))
         {
             return true;
         }
         else
         {
-            throw new ThemeException('Element "'.$child.'" is not a valid child of Grid');
+            throw new ThemeException('Element "'.$child.'" is not a valid child of '.__CLASS__);
         }
     }
     
     public function checkValidAttribute($attribute)
     {
-        if(in_array($this->validAttributes, $attribute))
+        if(in_array($attribute, $this->validAttributes))
         {
             return true;
         }
         else
         {
-            throw new ThemeException('Attribute "'.$attribute.'" is not a valid child of Grid');
+            throw new ThemeException('Attribute "'.$attribute.'" is not a valid attribute of '.__CLASS__);
         }
+    }
+    
+    public function getElementName()
+    {
+        return $this->elementName;
+    }
+    
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+    
+    public function getChildren()
+    {
+        return $this->children;
+    }
+    
+    public function getContent()
+    {
+        return $this->content;
     }
     
     public function __toString()
     {
-        return 'Grid';
+        return $this->classShortName;
     }
 }

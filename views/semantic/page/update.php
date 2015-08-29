@@ -20,24 +20,6 @@ $this->params['breadcrumbs'][] = Yii::t('page', 'Update');
         'model' => $model,
     ]) ?>
     
-    <?php
-        $content = $this->render(
-         Yii::$app->params['theme']['viewDirectory'].
-         Yii::$app->params['theme']['snippetDirectory'].
-         '/_column', [
-            'model' => $model,
-            'columnSize'=>'sixteen',
-            'content'=>'test1'
-        ]);
-    ?>
-    
-     <?= $this->render(
-         Yii::$app->params['theme']['viewDirectory'].
-         Yii::$app->params['theme']['snippetDirectory'].
-         '/_column', [
-            'model' => $model,
-            'columnSize'=>'sixteen',
-            'content'=>$content
-         ]) ?>
+    <?php echo $currentContent;?>
 
 </div>
