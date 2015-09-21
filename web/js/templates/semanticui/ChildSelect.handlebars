@@ -1,0 +1,6 @@
+<select class="add-child-select" data-id="{{this.identifier}}" onchange="chooseElement(this);">
+    <option value="">Add Element</option>
+    {{#each this.validChildren}}
+        <option value="{{@key}}">{{this}}</option>
+    {{/each}}
+</select>

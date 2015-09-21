@@ -11,10 +11,15 @@ use app\assets\AppAsset;
 use app\assets\SlickAsset;
 use app\assets\SemanticAsset;
 use app\assets\CustomAsset;
+use app\assets\HandlebarsAsset;
+use app\assets\Html2JsonAsset;
+
 
 AppAsset::register($this);
 SlickAsset::register($this);
 SemanticAsset::register($this);
+HandlebarsAsset::register($this);
+Html2JsonAsset::register($this);
 CustomAsset::register($this);
 ?>
 <?php $this->beginPage() ?>

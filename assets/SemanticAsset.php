@@ -15,7 +15,7 @@ use yii\web\AssetBundle;
  */
 class SemanticAsset extends AssetBundle
 {
-    public $sourcePath = '@app/semantic/dist/';
+    public $sourcePath = '@app/node_modules/semantic-ui/dist/';
     public $css = [
     		'semantic.min.css',
     ];

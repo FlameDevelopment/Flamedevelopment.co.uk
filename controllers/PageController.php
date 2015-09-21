@@ -6,6 +6,7 @@ use Yii;
 use app\models\Page;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\controllers\BaseController;
 
@@ -21,10 +22,23 @@ class PageController extends BaseController
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                //'only' => ['ajax-get-element', 'index','view','update','delete'],
+                'rules' => [
+                    [
+                        'actions' => ['ajaxy', 'index','view','update','delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
+                    'ajax-get-element' => ['post']
                 ],
             ],
         ];
@@ -90,11 +104,11 @@ class PageController extends BaseController
             $this->themeService = new ThemeService('SemanticUI');
             $availableElements = $this->themeService->getAvailableElements();
             $existingElements = $this->getExistingElements();
-            $currentContent = "";
+            /*$currentContent = "";
             foreach($existingElements as $existingElement)
             {
                 $currentContent.= $this->buildSnippet($existingElement);
-            }
+            }*/
             return $this->render('page/update', [
                 'model' => $model,
                 'availableElements' => $availableElements,
@@ -137,36 +151,41 @@ class PageController extends BaseController
     {
         $elements = [
           [
+            'id'=>1,
             'element'=>'Grid',
             'attributes'=>  [
               'id'=>'grid-element-1',
               'class'=>[
-                'ui',
-                'grid',
-                'derp'
+                'derp',
+                'derper'
               ],
             ],
             'content'=>null,
             'children'=>[
               
                 [
+                  'id'=>2,
                   'element'=>'Row',
                   'attributes'=>  [
-                    'id'=>'row-element-1'
+                    'id'=>'row-element-1',
+                    'class'=>'',
                   ],
                   'content'=>null,
                   'children'=>[
                         
                       [
+                        'id'=>3,
                         'element'=>'Column',
                         'attributes'=>  [
                           'id'=>'column-element-1',
+                          'class'=>['first', 'derp'],
                           'size'=>4,
                         ],
                         'content'=>'<p>1</p>',
                         'children'=>[]
                       ],
                       [
+                        'id'=>4,
                         'element'=>'Column',
                         'attributes'=>  [
                           'id'=>'column-element-2',
@@ -176,6 +195,7 @@ class PageController extends BaseController
                         'children'=>[]
                       ],
                       [
+                        'id'=>5,
                         'element'=>'Column',
                         'attributes'=>  [
                           'id'=>'column-element-3',
@@ -185,6 +205,7 @@ class PageController extends BaseController
                         'children'=>[]
                       ],
                       [
+                        'id'=>6,
                         'element'=>'Column',
                         'attributes'=>  [
                           'id'=>'column-element-4',
@@ -205,5 +226,31 @@ class PageController extends BaseController
         }
         
         return $elementObjects;
+    }
+    
+    public function actionAjaxy()
+    {
+        $choice = $_POST['element'];
+        $highestId = $_POST['highestId'];
+        $newId = ($highestId+1);
+        $attributes = [];
+        $attributes['id'] = strtolower($choice).'-element-'.$newId;
+        if($choice == "Column")
+        {
+            $attributes['size'] = 4;
+        }   
+        $element = [
+                    'id'=>$newId,
+                    'element'=>$choice,
+                    'attributes'=> $attributes,
+                    'content'=>'',
+                    'children'=>[]
+                ];
+        
+            $this->themeService = new ThemeService('SemanticUI');
+        $elementObject = $this->themeService->buildElement($element['element'], $element);
+        echo json_encode([
+          'element'=>$elementObject
+         ]);//BaseController::displayElement($elementObject);
     }
 }

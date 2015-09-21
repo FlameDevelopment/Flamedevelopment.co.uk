@@ -1,0 +1,21 @@
+<{{this.tag}}{{#each this.attr}} {{@key}}="{{#join this delimiter=" "}}{{this}}{{/join}}"{{/each}}>
+    <div class="sixteen column row">
+        <div class="ui raised segment">
+    
+            <div class="ui grid">
+                <div class="row">
+                    {{partial "ElementOptions" this}}
+                </div>
+                <div class="sixteen column row">
+                    {{#each this.child}}
+                        {{partial this.type this}}
+                    {{/each}}
+                    {{{this.text}}}
+                </div>
+                <div class="sixteen column row">
+                    {{partial "ChildSelect" this}}
+                </div>
+            </div>
+        </div>
+    </div>
+</{{this.tag}}>

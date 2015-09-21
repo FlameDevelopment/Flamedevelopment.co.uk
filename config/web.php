@@ -1,5 +1,4 @@
 <?php
-require(__DIR__ . '/../config/customAutoloader.php');
 require(__DIR__ . '/../config/aliases.php');
 
 //require(__DIR__ . '/../config/container.php');

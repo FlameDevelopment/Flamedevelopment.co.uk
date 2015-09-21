@@ -1,0 +1,9 @@
+<div class="sixteen wide column">
+    {{this.type}}
+    <div class="ui right floated main menu">
+        <a href="" data-content="Edit This Item" class="popup icon item" onclick="$('#{{this.identifier}}-modal').modal('show');return false;">
+<i class="edit icon"></i>
+</a>
+    </div>
+</div>
+{{partial "Modal" this}}

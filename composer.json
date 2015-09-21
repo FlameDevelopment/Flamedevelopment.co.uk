@@ -13,6 +13,10 @@
         "source": "https://github.com/yiisoft/yii2"
     },
     "minimum-stability": "stable",
+    "repositories": [{
+        "type": "git",
+        "url": "https://github.com/Jxck/html2json"
+    }],
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.5",
@@ -33,6 +37,11 @@
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject"
         ]
+    },
+    "autoload": {
+    	"psr-4": {
+    		"FlameDevelopment\\": "src/FlameDevelopment/"
+    	}
     },
     "extra": {
         "yii\\composer\\Installer::postCreateProject": {

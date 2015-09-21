@@ -1,0 +1,57 @@
+<div id="{{this.identifier}}-modal" class="ui modal">
+
+
+<script>
+$("#{{this.identifier}}-class-select").dropdown(
+    'set selected', [{{#each this.customAttr.class as |val attri|}}'{{val}}',{{/each}}]
+);
+</script>
+  <i class="close icon"></i>
+  <div class="header">
+    Edit {{this.type}}
+  </div>
+  <div class="content">
+    <div class="description">
+      <div class="ui header">Below you can amend the {{this.type}}'s attributes, once done - hit 'Apply Changes'.</div>
+      <div class="ui form">
+        {{#each this.customAttr as |val attri|}}
+          <div class="field">
+              {{#ifEquals @key "class"}}
+                  <div class="ui labeled input">
+                      <div class="ui label">
+                          {{@key}}
+                      </div>
+                      <div id="{{../identifier}}-class-select" class="ui fluid multiple search selection dropdown custom" data-id="{{../identifier}}" name="{{../identifier}}-class-select">
+                          <input name="tags" type="hidden">
+                          <i class="dropdown icon"></i>
+                          <div class="default text">Enter a class name...</div>
+                              <div class="menu">
+                                  {{#each val as |class i|}}
+                                      <div class="disabled item" data-value="{{class}}">{{class}}</div>
+                                  {{/each}}
+                              </div>
+                          </div>
+                  </div>
+              {{else}}
+                  <div class="ui labeled input">
+                    <div class="ui label">
+                      {{@key}}
+                    </div>
+                    <input placeholder="{{@key}}" type="text" value="{{val}}" name="{{../identifier}}-id-input">
+                  </div>
+              {{/ifEquals}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Cancel (undo changes)
+    </div>
+    <div class="ui positive right labeled icon button">
+      Apply Changes
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>

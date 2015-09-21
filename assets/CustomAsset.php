@@ -22,6 +22,7 @@ class CustomAsset extends AssetBundle
     ];
     public $js = [
         'js/scripts.js',
+        'js/templates/semanticui/templates.js'
     ];
     public $depends = [
     ];
