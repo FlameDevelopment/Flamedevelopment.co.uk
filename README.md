@@ -10,6 +10,8 @@ Technologies used:
 * Composer (https://getcomposer.org/)
 * Semantic-UI (http://semantic-ui.com/)
 * Bootstrap (http://getbootstrap.com/)
+* Handlebars JS (http://handlebarsjs.com/)
+* Html2Json (https://github.com/Jxck/html2json)
 
 **Disclaimer: All code is work-in-progress, please automatically assume I've apologised if any of it offends you.**
 
